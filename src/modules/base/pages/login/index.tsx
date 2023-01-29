@@ -28,61 +28,49 @@ export default function Login() {
   }
   
   return (
-    <>
-      <Header />
-      <Container classname="login-page-wrapper">
-        <Container classname="left-main-wrapper">
-          <Picture
-            classname="special-image-1"
-            id="login-page-img"
-            src="/assets/images/netflix.png"
-            alt=""
-          />
-        </Container>
-        <Container classname="right-main-wrapper">
-          <form
-            id="login-form"
-            onSubmit={function (e) {
-              e.preventDefault();
-              // onSubmit();
-            }}
-          >
-            <h1>MovieLandia22</h1>
-            <label>
-              <Input
-                type="text"
-                name="email"
-                placeholder="Enter your email"
-                required
-                onChange={function (e) {
-                  setEmail(e.target.value);
-                }}
-              />
-            </label>
-            <label>
-              <Input
-                type="password"
-                name="password"
-                placeholder="Enter your password"
-                required
-                onChange={function (e) {
-                  setPassword(e.target.value);
-                }}
-              />
-            </label>
-            <label>
-              <Button>Log In</Button>
-            </label>
-            <label id="signup-link-wrapper" htmlFor="">
-              Don't have an account?
-              <Link id="link" to={"/register"}>
-                Sign Up
-              </Link>
-            </label>
-          </form>
-        </Container>
+    <Container classname="login-page-wrapper">
+      <Container classname="main-wrapper">
+        <form
+          id="login-form"
+          onSubmit={function (e) {
+            e.preventDefault();
+            // onSubmit();
+          }}
+        >
+          <h1>Login</h1>
+          <label>
+            <Input
+              type="text"
+              name="email"
+              placeholder="Email"
+              required
+              onChange={function (e) {
+                setEmail(e.target.value);
+              }}
+            />
+          </label>
+          <label>
+            <Input
+              type="password"
+              name="password"
+              placeholder="Password"
+              required
+              onChange={function (e) {
+                setPassword(e.target.value);
+              }}
+            />
+          </label>
+          <label>
+            <Button>Login</Button>
+          </label>
+          <label id="signup-link-wrapper" htmlFor="">
+            Don't have an account?
+            <Link id="link" to={"/register"}>
+              Register
+            </Link>
+          </label>
+        </form>
       </Container>
-      <Footer />
-    </>
+    </Container>
   );
 }

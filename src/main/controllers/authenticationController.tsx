@@ -1,26 +1,28 @@
 import axios from 'axios';
 import ILogin from '~/main/interfaces/ILogin';
 import IRegister from '~/main/interfaces/IRegister';
-import IResponseLogin from '~/main/interfaces/IResponseLogin';
 import IUser from '~/main/interfaces/IUser';
 
 const authenticationController = {
-  onLogin: async(email: string, password: string): Promise<any> => {
+  onLogin: async(email: string, passwordi: string): Promise<any> => {
     const payload: ILogin = {
       email,
-      password
+      passwordi
     };
-    const responseLogin: IResponseLogin = await axios.post("http://localhost:4000/login", payload).then(x => x.data);
+    const responseLogin: any = await axios.post("http://localhost:4000/login", payload).then(x => x.data);
     return responseLogin;
   },
 
-  onRegister: async(username: string, email: string, password: string): Promise<any> => {
+  onRegister: async(emri: string, mbiemri: string, username: string, email: string, nrTelefonit: string, passwordi: string): Promise<any> => {
     const payload: IRegister = {
+      emri,
+      mbiemri,
       username,
       email,
-      password
+      nrTelefonit,
+      passwordi
     };
-    const responseLogin: IResponseLogin = await axios.post("http://localhost:4000/sign-up", payload).then(x => x.data);
+    const responseLogin: any = await axios.post("http://localhost:4000/register", payload).then(x => x.data);
     return responseLogin;
   },
 
