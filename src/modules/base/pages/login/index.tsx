@@ -2,10 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Button from "~/main/components/button/index";
 import Container from "~/main/components/container/index";
-import Footer from "~/main/components/footer/index";
-import Header from "~/main/components/header/index";
 import Input from "~/main/components/input/index";
-import Picture from "~/main/components/picture/index";
 import authenticationController from "~/main/controllers/authenticationController";
 import { useStore } from "~/main/store/zustand/store";
 import "~/modules/base/pages/login/style.css";
@@ -17,15 +14,15 @@ export default function Login() {
   const [password, setPassword] = useState<string>("");
   const { user, setUser } = useStore();
 
-  // async function onSubmit() {
-  //   const response: IResponseLogin = await authenticationController.onLogin(email, password);
-  //   localStorage.setItem("token", response.token);
-  //   setUser(response.user);
-  // }
-
-  if (user) {
-    // navigate("/movies");
+  async function onSubmit() {
+    const response: any = await authenticationController.onLogin(email, password);
+    localStorage.setItem("token", response.token);
+    setUser(response.user);
   }
+
+  // if (user) {
+  //   navigate("/movies");
+  // }
   
   return (
     <Container classname="login-page-wrapper">
@@ -34,7 +31,7 @@ export default function Login() {
           id="login-form"
           onSubmit={function (e) {
             e.preventDefault();
-            // onSubmit();
+            onSubmit();
           }}
         >
           <h1>Login</h1>

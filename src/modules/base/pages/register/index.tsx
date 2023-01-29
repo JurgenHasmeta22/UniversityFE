@@ -16,16 +16,17 @@ export default function Register() {
   const [password, setPassword] = useState<string>("");
   const { user, setUser } = useStore();
   
-  // async function onSubmit() {
-  //   const response: IResponseLogin = await authenticationController.onRegister(username, email, password);
-  //   localStorage.setItem("token", response.token);
-  //   setUser(response.user);
-  // }
+  async function onSubmit() {
+    const response: any = await authenticationController.onRegister(name, surname, username, email, phone, password);
+    localStorage.setItem("token", response.token);
+    setUser(response.user);
+  }
 
   const navigate = useNavigate();
-  if (user) {
-    // navigate("/movies");
-  }
+
+  // if (user) {
+  //   navigate("/movies");
+  // }
 
   return (
     <Container classname="signup-page-wrapper">
@@ -34,7 +35,7 @@ export default function Register() {
           id="signup-form"
           onSubmit={function (e) {
             e.preventDefault();
-            // onSubmit();
+            onSubmit();
           }}
         >
           <h1>Register</h1>
@@ -44,6 +45,7 @@ export default function Register() {
               placeholder="Name"
               required={true}
               onChange={function (e: any) {
+                setName(e.target.value);
               }}
             />
           </label>
@@ -53,6 +55,7 @@ export default function Register() {
               placeholder="Surname"
               required={true}
               onChange={function (e: any) {
+                setSurname(e.target.value);
               }}
             />
           </label>
@@ -62,6 +65,7 @@ export default function Register() {
               placeholder="Username"
               required={true}
               onChange={function (e: any) {
+                setUsername(e.target.value);
               }}
             />
           </label>
@@ -71,6 +75,7 @@ export default function Register() {
               id="email"
               placeholder="Email"
               onChange={function (e) {
+                setEmail(e.target.value);
               }}
             />
           </label>
@@ -80,6 +85,7 @@ export default function Register() {
               placeholder="Phone"
               required={true}
               onChange={function (e: any) {
+                setPhone(e.target.value);
               }}
             />
           </label>
@@ -90,6 +96,7 @@ export default function Register() {
               placeholder="Password"
               required
               onChange={function (e) {
+                setPassword(e.target.value);
               }}
             />
           </label>
