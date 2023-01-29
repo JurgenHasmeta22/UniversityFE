@@ -1,10 +1,10 @@
 .footer-welcome {
   display: grid;
   grid-area: footer;
-  grid-template-rows: 40px 40px;
+  grid-template-rows: 1fr;
   grid-gap: 10px;
   place-items: center;
-  height: 200px;
+  height: 150px;
   background-color: #012b36;
   place-content: center;
 }

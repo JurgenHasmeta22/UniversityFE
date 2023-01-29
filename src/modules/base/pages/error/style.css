@@ -3,11 +3,12 @@
   width: 100%;
   display: grid;
   place-items: center;
-  background-color: #ecf6f9;
+  background-color: #fff;
 }
 
 .error-wrapper span {
   font-size: 28px;
   font-weight: 800;
+  color: #0050eb;
   letter-spacing: 5px;
 }

@@ -13,7 +13,7 @@ const authenticationController = {
     return responseLogin;
   },
 
-  onRegister: async(emri: string, mbiemri: string, username: string, email: string, nrTelefonit: string, passwordi: string): Promise<any> => {
+  onRegister: async(emri: string, mbiemri: string, username: string, email: string, nrTelefonit: number, passwordi: string): Promise<any> => {
     const payload: IRegister = {
       emri,
       mbiemri,

@@ -3,6 +3,6 @@ export default interface IUser {
   mbiemri: string,
   username: string,
   email: string,
-  nrTelefonit: string,
+  nrTelefonit: number,
   passwordi: string
 }
